@@ -1,0 +1,1 @@
+Inside the Python interpreter, the help function pulls up documentation strings for various modules, functions, and methods. These doc strings are similar to Java's javadoc. This is one way to get quick access to docs. Here are some ways to call help() from inside the interpreter:
