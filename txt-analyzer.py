@@ -11,29 +11,102 @@
 
 import sys, re, os
 
-def main():
-  f = fopen ( sample.txt, 'r')
-  buff = f.read()
-  adjs = [] #Empty list for appending Adjectives
-  advrbs = []
-  vrbs = []
-  nouns = []
-
-  
+"""
 def adjects():
-  f1 = fopen(r'adjectives/28Kadjectives.txt', 'r')
-  adjs = f1.read()
-  for buff in adjs
-    adjs.append(buff)
+  
+  return 
 """
-def adverbs():
-  f2 = fopen(r'adverbs//6kadverbs.txt', 'r')
-  advrbs = f2.read()
-  for buff in advrbs
-    advrbs.append(buff)
 
-"""
+def main():
+  
+  adjs = []
+  vrbs = []
+  advrbs = [] 
+  nouns =  [] 
+  f = open ('sample.txt', 'r')
+  samlines = f.readlines()
+ 
+  #scan logic starts here
+    
+  for sameachline in samlines:
+    sameachlinelist = sameachline.strip()
+    sameachlinelist = sameachline.split() #yet to delete punctuation from the strings.
+    adjects(sameachlinelist,adjs)
+    adverbs(sameachlinelist,advrbs)
+    noun(sameachlinelist,nouns)
+    verbs(sameachlinelist,vrbs)
+  
+  print '\nAdjectives:'
+  print adjs
+
+  print '\nAdverbs:'
+  print advrbs
+
+  print '\nNouns:'
+  print nouns
+
+  print '\nVerbs:'
+  print vrbs
+
+
+#adjectives fun
+def adjects(sameachlinelist,adjs):
+  
+  f1 = open ('adjectives/28Kadjectives.txt', 'r')
+  chklines = f1.readlines()
+ 
+  for chkwrd in chklines:
+    chkwrd = str(chkwrd)
+    chkwrd = chkwrd.strip()
+    if chkwrd in sameachlinelist:
+      adjs.append(chkwrd)   
+        
+  return adjs
+  
+#adverbs fun
+def adverbs(sameachlinelist,advrbs):
+  
+  f2 = open ('adverbs/6Kadverbs.txt', 'r')
+  chklines = f2.readlines()
+ 
+  for chkwrd in chklines:
+    chkwrd = str(chkwrd)
+    chkwrd = chkwrd.strip()
+    if chkwrd in sameachlinelist:
+      advrbs.append(chkwrd)   
+        
+  return advrbs
+
+#nouns fun
+def noun(sameachlinelist, nouns):
+  
+  f3 = open ('nouns/91Knouns.txt', 'r')
+  chklines = f3.readlines()
+ 
+  for chkwrd in chklines:
+    chkwrd = str(chkwrd)
+    chkwrd = chkwrd.strip()
+    if chkwrd in sameachlinelist:
+      nouns.append(chkwrd)   
+        
+  return nouns
+
+#verbs fun
+def verbs(sameachlinelist, vrbs):
+  
+  f3 = open ('verbs/31Kverbs.txt', 'r')
+  chklines = f3.readlines()
+ 
+  for chkwrd in chklines:
+    chkwrd = str(chkwrd)
+    chkwrd = chkwrd.strip()
+    if chkwrd in sameachlinelist:
+      vrbs.append(chkwrd)   
+        
+  return vrbs
+
+#boilerplating
 if __name__ == '__main__':
-  main()
+    main()  
 
 
